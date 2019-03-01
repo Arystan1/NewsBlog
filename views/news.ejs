@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <% include blocks/scripts.ejs %>
+    <script src="/assets/scripts/getnews.js"></script>
+    <title>Articles</title>
+</head>
+<body>
+    <% include blocks/nav.ejs %>
+
+    <div id="flex_container">
+        <div id="header_of_news_page">
+            Game news
+        </div>
+        <% for(var i = 0; i < 30; i++) {%>
+
+            <div class="news_blog">
+                <span class="news_id" style="opacity: 0;"><%= i %></span>
+                <img src=<%= ArrayNews[i].img %> alt="just_img" id="news_img" type="image/jpeg">   
+                <p id="news_title"><%= ArrayNews[i].title %></p>  
+                <p id="news_text"><%= ArrayNews[i].short %></p>
+                <p id="news_date"><%= ArrayNews[i].date %></p>
+                <p class="news_whole_text" style="display: none;"><%= ArrayNews[i].text_without_symbol %></p>
+            </div>
+
+        <% } %>
+    </div>
+</body>
+</html>

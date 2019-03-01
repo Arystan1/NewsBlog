@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <% include blocks/scripts.ejs %>
+    <script src="/assets/scripts/ckeditor/ckeditor.js"></script>
+    <script src="/assets/scripts/writenews.js"></script>
+    <title>Your news</title>
+</head>
+<body>
+    <% include blocks/nav.ejs %>
+
+    <div id="write_news_flex_container">
+        
+        <div id="toolbar-container"></div>
+
+        <div id="editor">
+            <p name="content">This is the initial editor content.</p>
+        </div>
+
+        <input id="save_html_code" type="button" value="Save html code">
+    </div>
+    <script>
+    
+        DecoupledEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                const toolbarContainer = document.querySelector( '#toolbar-container' );
+
+                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+
+    </script>
+</body>
+</html>

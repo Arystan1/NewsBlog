@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <% include blocks/scripts.ejs %>
+    <title>Sign In</title>
+</head>
+<body>
+    <% include blocks/nav.ejs %>
+    
+    <h2 style="text-align: center">Registration</h2>
+
+    <form method="POST" action="/signin">
+        Nickname:<br>
+        <input type="text" name="nickname"><br>
+        Email:<br>
+        <input type="text" name="email"><br>
+        Password:<br>
+        <input type="password" name="password"><br>
+        Repeat password:<br>
+        <input type="password" name="repeated-password"><br><br>
+        <input id="signin" type="button" value="Registration">
+
+    </form>
+    <div id="signin-message-box">
+
+    </div>
+</body>
+</html>

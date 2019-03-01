@@ -1,0 +1,140 @@
+/*Menu area*/
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    background-color: #000722;
+}
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    text-decoration: none;
+
+    padding: 10px 15px;
+    border-right: 1px solid white;
+
+    color: white;
+    text-align: center;
+}
+
+.menu li:last-child {
+    float: right;
+    border-left: 1px solid white;
+}
+
+.menu li:nth-child(4){
+    float: right;
+    border-left: 1px solid white;
+}
+
+.menu li a:hover {
+    background-color: #000759;
+}   
+
+/*All news area*/
+#flex_container {
+    display: flex;
+    flex-direction: row;
+    padding: 5vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    flex-grow: 1 1 1 1;
+}
+
+#header_of_news_page {
+    flex-basis: 100%;
+    height: 30vh;
+    font-size: 45px;
+}
+
+.news_blog {
+    background-color: white;
+    flex-basis: 17%;
+    padding: 10px;
+    margin: 5vh;
+    box-shadow: 0 0 10px rgb(0, 0, 0)
+}
+
+#news_img {
+    width: 100%;
+}
+
+#news_title {
+    font-size: 15px;
+    font-weight: bolder;
+    color: rgb(39, 39, 39);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#news_text {
+    font-size: 14px;
+    font-weight: lighter;
+    color:rgb(65, 65, 65);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#news_date {
+    font-size: 10px;
+    font-weight: lighter;
+    color:rgb(87, 87, 87);
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.news_whole_text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 5vh;
+    color: pink;
+    text-align: justify; 
+    text-justify: inter-word;
+}
+
+.news_whole_text > a {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 5vh;
+    color: black;
+}
+
+/*Single news area*/
+/*
+#single_news_flex_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+#single_news_title {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    font-size: 5vh;
+    text-align: center;
+    flex-basis: 100%;
+}
+
+#single_news_object {
+    border: black solid 1px;
+
+}
+
+#single_main_news_img {
+    
+}
+*/
+
+/*Write news styles*/
+#write_news_flex_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
