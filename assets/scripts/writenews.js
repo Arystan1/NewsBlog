@@ -1,11 +1,40 @@
 $('document').ready(function(){
 
+    var data;
+
+    DecoupledEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                const toolbarContainer = document.querySelector( '#toolbar-container' );
+
+                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+
+                data = editor;
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+
+
+
     $('#save_html_code').click(function(){
 
-        //var val = editor.getData();
-        var val = CKEDITOR.instances['#editor'].getData();
-        alert(val);
-        //alert("hey");
+        news = data.getData();
+
+        let jsonfile = JSON.stringify({html: news});
+
+        $.ajax({
+            url: '/writenews',
+            method: 'POST',
+            dataType: "json",
+            data: jsonfile,
+            contentType: "application/json",
+            success: function(result) {
+                console.log(result.status);
+            }
+        })
+
+        //console.log(data.getData());
 
     })
 

@@ -1,9 +1,11 @@
 var express = require('express');
 var http = require('http');
 //var io = require('socket.io')(http);
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 //var mysql = require('mysql2');
 var fs = require('fs');
+var builder = require('xmlbuilder');
+var DOMParser = require('xmldom').DOMParser;
 var xml2js = require('xml2js');
 var download = require('download');
 
@@ -32,7 +34,7 @@ app.use('/assets', express.static('assets'));
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });*/
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 //var urlencodedParser = bodyParser.urlencoded({ extended: false });
 //download('https://rss.stopgame.ru/rss_news.xml').pipe(fs.createWriteStream('rss_news.xml'));
 fs.readFile(__dirname + '/rss_news.xml', function(err, data) {
@@ -59,7 +61,7 @@ fs.readFile(__dirname + '/rss_news.xml', function(err, data) {
 
         }
         //console.log(ArrayNews);
-        console.log(ArrayNews[0]);
+        //console.log(ArrayNews[0]);
         console.log('Done');
 
     });
@@ -78,6 +80,25 @@ app.get('/writenews', function(req, res) {
 
 });
 
+app.post('/writenews', function(req, res) {
+
+    global_id = 1;
+    news = {
+        id : global_id,
+        html_text : req.body.html,
+        date : new Date(),
+        short : req.body.html.replace(/(<[^>]+>)/ig,"").substring(0, 121) + '...',
+        img : "image here"
+    }
+    
+    console.log(news);
+    res.contentType('json');
+    res.send({
+        status: "Success"
+    });
+
+});
+
 //Main page
 app.get('/', function(req, res) {
     
@@ -89,8 +110,8 @@ app.get('/', function(req, res) {
 //Article page
 app.get('/news/:id', function(req, res) {
     
-    /*id = req.params.id;
-
+    id = req.params.id;
+    /*
     console.log(typeof id);
     console.log(typeof 2);
 
