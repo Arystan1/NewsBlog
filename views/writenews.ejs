@@ -14,7 +14,6 @@
     <% include blocks/nav.ejs %>
 
     <div id="write_news_flex_container">
-        
         <div id="toolbar-container"></div>
 
         <div id="editor">
@@ -22,20 +21,7 @@
         </div>
 
         <input id="save_html_code" type="button" value="Save html code">
-    </div><!--
-    <script>
-    
-        DecoupledEditor
-            .create( document.querySelector( '#editor' ) )
-            .then( editor => {
-                const toolbarContainer = document.querySelector( '#toolbar-container' );
+    </div>
 
-                toolbarContainer.appendChild( editor.ui.view.toolbar.element );
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-
-    </script>-->
 </body>
 </html>
