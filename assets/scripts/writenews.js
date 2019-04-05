@@ -1,6 +1,20 @@
 $('document').ready(function(){
 
     var data;
+    var news_img;
+    var news_ttl;
+
+    DecoupledEditor
+            .create( document.querySelector( '#editor-for-image' ) )
+            .then( editor => {
+                news_img = editor;
+            } );
+
+    DecoupledEditor
+            .create( document.querySelector( '#editor-for-title' ) )
+            .then( editor => {
+                news_ttl = editor;
+            } );
 
     DecoupledEditor
             .create( document.querySelector( '#editor' ) )
@@ -18,22 +32,33 @@ $('document').ready(function(){
 
 
     $('#save_html_code').click(function(){
+        let news_image = news_img.getData();
+        let news_title = news_ttl.getData();
+        let news = data.getData();
 
-        news = data.getData();
+        if(news_image == '<p>&nbsp;</p>' || news_title == '<p>&nbsp;</p>' || news == '<p>&nbsp;</p>'){
+            alert('One of the lines is empty!');
+            return;
+        }
 
-        let jsonfile = JSON.stringify({html: news});
+        let jsonfile = JSON.stringify({
+          main_img: news_image,
+          main_title: news_title,
+          html: news
+        });
 
+        console.log(jsonfile);
         $.ajax({
             url: '/writenews',
             method: 'POST',
             dataType: "json",
             data: jsonfile,
             contentType: "application/json",
-            success: function(result) {
-                console.log(result.status);
-            }
-        })
+        });
+
+        alert('Поздравляю! Ваша новость была опубликована!');
+        window.location = 'http://localhost:3000/news';
 
     })
 
-}); 
+});

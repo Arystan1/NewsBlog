@@ -1,0 +1,35 @@
+{
+  "name": "NewsBlog",
+  "version": "1.0.0",
+  "description": "My newsblog",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "child-process": "^1.0.2",
+    "download": "^7.1.0",
+    "ejs": "^2.6.1",
+    "ent": "^2.2.0",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.4",
+    "node-cmd": "^3.0.0",
+    "socket.io": "^2.2.0",
+    "xml2js": "^0.4.19",
+    "xmlbuilder": "^11.0.0",
+    "xmldom": "^0.1.27"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arystan1/NewsBlog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arystan1/NewsBlog/issues"
+  },
+  "homepage": "https://github.com/Arystan1/NewsBlog#readme"
+}

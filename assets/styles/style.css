@@ -18,24 +18,54 @@
     padding: 10px 15px;
     border-right: 1px solid white;
 
+
+    text-align: left;
+}
+
+li a:hover {
+    background-color: #000759;
+}
+
+.dropbtn {
+    display: inline-block;
     color: white;
     text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-.menu li:last-child {
-    float: right;
-    border-left: 1px solid white;
+li.dropdown {
+    display: inline-block;
 }
 
-.menu li:nth-child(4){
-    float: right;
-    border-left: 1px solid white;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-.menu li a:hover {
-    background-color: #000759;
-}   
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
 
+.dropdown-content a:hover {
+    background-color: grey;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+li a, .dropbtn {
+    color: white;
+}
 /*All news area*/
 #flex_container {
     display: flex;
@@ -91,7 +121,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 5vh;
     color: pink;
-    text-align: justify; 
+    text-align: justify;
     text-justify: inter-word;
 }
 
@@ -102,7 +132,6 @@
 }
 
 /*Single news area*/
-/*
 #single_news_flex_container {
     display: flex;
     flex-direction: column;
@@ -110,24 +139,16 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-}
-#single_news_title {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    font-size: 5vh;
-    text-align: center;
-    flex-basis: 100%;
+
+    padding: 5vh;
+    flex-basis: 80%;
+
+    font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif;
 }
 
-#single_news_object {
-    border: black solid 1px;
-
+#single_news_flex_container a {
+  color: #548eaa;
 }
-
-#single_main_news_img {
-    
-}
-*/
 
 /*Write news styles*/
 #write_news_flex_container {
@@ -141,7 +162,38 @@
     margin-top: 5vh;
 }
 
-#editor {
+#word-editor {
+    width: 170vh;
+}
+
+#editor-for-image {
+    width: 50vh;
+    height: 30vh;
     border: 2px solid rgba(128, 128, 128, 0.295);
     margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+}
+
+#editor-for-title {
+    width: auto;
+    border: 2px solid rgba(128, 128, 128, 0.295);
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+}
+
+#toolbar-container {
+    width: auto;
+}
+
+#editor {
+    width: auto;
+    min-height: 50vh;
+    border: 2px solid rgba(128, 128, 128, 0.295);
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+}
+
+/*Main styles*/
+body {
+    font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif;
 }

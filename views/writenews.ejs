@@ -14,13 +14,28 @@
     <% include blocks/nav.ejs %>
 
     <div id="write_news_flex_container">
-        <div id="toolbar-container"></div>
-
-        <div id="editor">
-            <p name="content">This is the initial editor content.</p>
+            <p>Вставьте изображение для заголовка новости</p>
+        <div id="editor-for-image">
+            <p name="content"></p>
         </div>
 
-        <input id="save_html_code" type="button" value="Save html code">
+        <p>Напишите заголовок и текст новости. После нажмите "Опубликовать"</p>
+        <div id="word-editor">
+
+          <div id="editor-for-title">
+              <p name="content"></p>
+          </div>
+
+          <div id="toolbar-container"></div>
+
+          <div id="editor">
+              <p name="content"></p>
+          </div>
+
+        </div>
+
+
+        <input id="save_html_code" type="button" value="Public your news">
     </div>
 
 </body>
