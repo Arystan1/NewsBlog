@@ -38,6 +38,7 @@ $('document').ready(function(){
                 success: function(result) {
                     console.log(result.status);
                     alert(result.status);
+                    window.location = 'http://localhost:3000/';
                 }
             });
         }
@@ -56,7 +57,7 @@ $('document').ready(function(){
             password = $.MD5(password).toUpperCase();
 
             $.ajax({
-                
+
                 url: '/signin',
                 type: 'POST',
                 contentType: 'application/json',
@@ -68,6 +69,7 @@ $('document').ready(function(){
                 success: function(result) {
                     console.log(result.status);
                     alert(result.status);
+                    window.location = 'http://localhost:3000/';
                 }
 
             });

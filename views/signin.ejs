@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/assets/styles/style.css">
     <% include blocks/scripts.ejs %>
-    <title>Sign In</title>
+    <title>Регистрация</title>
 </head>
 <body>
     <% include blocks/nav.ejs %>
-    
-    <h2 style="text-align: center">Registration</h2>
+
+    <h2 style="text-align: center">Регистрация на сайте</h2>
 
     <form method="POST" action="/signin">
-        Nickname:<br>
+        Никнейм:<br>
         <input type="text" name="nickname"><br>
         Email:<br>
         <input type="text" name="email"><br>
-        Password:<br>
+        Пароль:<br>
         <input type="password" name="password"><br>
-        Repeat password:<br>
+        Повторите пароль:<br>
         <input type="password" name="repeated-password"><br><br>
-        <input id="signin" type="button" value="Registration">
+        <input id="signin" type="button" value="Регистрация">
 
     </form>
     <div id="signin-message-box">

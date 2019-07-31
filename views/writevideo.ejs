@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="/assets/styles/style.css">
     <% include blocks/scripts.ejs %>
     <script src="/assets/scripts/ckeditor/ckeditor.js"></script>
-    <script src="/assets/scripts/writenews.js"></script>
-    <title>Написать новость</title>
+    <script src="/assets/scripts/writevideo.js"></script>
+    <title>Выложить видео</title>
 </head>
 <body>
     <% include blocks/nav.ejs %>
 
-    <div id="write_news_flex_container">
-            <p>Вставьте изображение для заголовка новости</p>
+    <div id="write_video_flex_container">
+            <p>Вставьте изображение для заголовка видео</p>
         <div id="editor-for-image">
             <p name="content"></p>
         </div>
 
-        <p>Напишите заголовок и текст новости. После нажмите "Опубликовать"</p>
+        <p>Напишите заголовок, краткое описание и вставьте видео. После нажмите "Опубликовать"</p>
         <div id="word-editor">
 
           <div id="editor-for-title">
@@ -28,14 +28,18 @@
 
           <div id="toolbar-container"></div>
 
-          <div id="editor">
+          <div id="editor-for-description">
+              <p name="content"></p>
+          </div>
+
+          <div id="editor-for-video">
               <p name="content"></p>
           </div>
 
         </div>
 
 
-        <input id="save_html_code" type="button" value="Public your news">
+        <input id="save_html_code" type="button" value="Опубликовать">
     </div>
 
 </body>

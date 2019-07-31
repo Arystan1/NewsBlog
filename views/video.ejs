@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <% include blocks/scripts.ejs %>
+    <script src="/assets/scripts/getvideo.js"></script>
+    <title>Видео</title>
+</head>
+<body>
+    <% include blocks/nav.ejs %>
+
+    <div id="flex_container">
+        <div id="header_of_video_page">
+            Свежие видео
+        </div>
+
+        <% for(var key = ArrayVideo[0].size - 1; key >= 0; key--) {%>
+
+            <div class="video_blog">
+                <span class="video_id" style="opacity: 0;"><%= key %></span>
+                <img src=<%= ArrayVideo[key].img %> alt="just_img" id="video_img" type="image/jpeg">
+                <p id="video_title"><%= ArrayVideo[key].title %></p>
+                <p id="video_text"><%= ArrayVideo[key].short %></p>
+                <p id="video_date"><%= ArrayVideo[key].date %></p>
+                <p class="video_whole_text" style="display: none;"><%= ArrayVideo[key].text %></p>
+            </div>
+
+        <% } %>
+    </div>
+</body>
+</html>

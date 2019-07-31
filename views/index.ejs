@@ -10,6 +10,52 @@
 </head>
 <body>
     <% include blocks/nav.ejs %>
-    <h1 style="text-align: center">Main page</h1>
+
+    <div id="flex_container">
+        <div id="header_of_video_page">
+            Главное страница
+        </div>
+        <div id="flex_column_container">
+          <% for(var key = tArrayNews[1].size - 1; key >= tArrayNews[0].size; key--) {%>
+
+              <div class="news_blog">
+                  <span class="news_id" style="opacity: 0;"><%= key %></span>
+                  <img src=<%= tArrayNews[key].img %> alt="just_img" id="news_img" type="image/jpeg">
+                  <p id="news_title"><%= tArrayNews[key].title %></p>
+                  <p id="news_text"><%= tArrayNews[key].short %></p>
+                  <p id="news_date"><%= tArrayNews[key].date %></p>
+                  <p class="news_whole_text" style="display: none;"><%= tArrayNews[key].text %></p>
+              </div>
+
+          <% } %>
+
+          <% for(var key = tArrayArticle[1].size - 1; key >= tArrayArticle[0].size; key--) {%>
+
+              <div class="article_blog">
+                  <span class="article_id" style="opacity: 0;"><%= key %></span>
+                  <img src=<%= tArrayArticle[key].img %> alt="just_img" id="news_img" type="image/jpeg">
+                  <p id="article_title"><%= tArrayArticle[key].title %></p>
+                  <p id="article_text"><%= tArrayArticle[key].short %></p>
+                  <p id="article_date"><%= tArrayArticle[key].date %></p>
+                  <p class="article_whole_text" style="display: none;"><%= tArrayArticle[key].text %></p>
+              </div>
+
+          <% } %>
+
+          <% for(var key = tArrayVideo[1].size - 1; key >= tArrayVideo[0].size; key--) {%>
+
+              <div class="video_blog">
+                  <span class="video_id" style="opacity: 0;"><%= key %></span>
+                  <img src=<%= tArrayVideo[key].img %> alt="just_img" id="video_img" type="image/jpeg">
+                  <p id="video_title"><%= tArrayVideo[key].title %></p>
+                  <p id="video_text"><%= tArrayVideo[key].short %></p>
+                  <p id="video_date"><%= tArrayVideo[key].date %></p>
+                  <p class="video_whole_text" style="display: none;"><%= tArrayVideo[key].text %></p>
+              </div>
+
+          <% } %>
+        </div>
+    </div>
+
 </body>
 </html>

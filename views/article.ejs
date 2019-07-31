@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <% include blocks/scripts.ejs %>
+    <script src="/assets/scripts/getarticle.js"></script>
+    <title>Статьи</title>
+</head>
+<body>
+    <% include blocks/nav.ejs %>
+
+    <div id="flex_container">
+        <div id="header_of_article_page">
+            Свежие статьи
+        </div>
+
+        <% for(var key = ArrayArticle[0].size - 1; key >= 0; key--) {%>
+
+            <div class="article_blog">
+                <span class="article_id" style="opacity: 0;"><%= key %></span>
+                <img src=<%= ArrayArticle[key].img %> alt="just_img" id="news_img" type="image/jpeg">
+                <p id="article_title"><%= ArrayArticle[key].title %></p>
+                <p id="article_text"><%= ArrayArticle[key].short %></p>
+                <p id="article_date"><%= ArrayArticle[key].date %></p>
+                <p class="article_whole_text" style="display: none;"><%= ArrayArticle[key].text %></p>
+            </div>
+
+        <% } %>
+    </div>
+</body>
+</html>
