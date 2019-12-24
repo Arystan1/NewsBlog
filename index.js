@@ -21,13 +21,6 @@ const connection = mysql.createConnection({
     database: 'NewsBlog'
 });
 
-const acc_connection = mysql.createConnection({
-    host: 'linux-pc',
-    user: 'root',
-    password: 'lossantos99',
-    database: 'accounts'
-});
-
 
 //Initialize settings
 var app = express();
@@ -462,7 +455,32 @@ app.post('/writevideo', function(req, res) {
 });
 //Main page
 app.get('/', function(req, res) {
+/*
+    ArrayNews = [];
 
+    connection.query('SELECT * FROM articles LIMIT 2',function(err, results, fields){
+        for(var key = 0; key < 2; key++){
+
+            index = {
+                id: results[key].id,
+                title: results[key].title,
+                text: results[key].html_text,
+                date: results[key].date,
+                short: results[key].short,
+                img: results[key].img,
+                size: Object.size(results)
+            }
+
+            ArrayNews.push(index);
+            
+          }
+
+            console.log(ArrayNews);
+            res.render('/');
+    })
+    */
+
+    
     ArrayNews = [];
 
     connection.query(
@@ -709,8 +727,8 @@ app.get('/login', function(req, res) {
 //On log in
 app.post('/login', urlencodedParser, function(req, res) {
 
-    acc_connection.query(
-        'SELECT * FROM accounts_data WHERE account_email = ?', [req.body.email],
+    connection.query(
+        'SELECT * FROM accounts WHERE account_email = ?', [req.body.email],
         function(err, results, fields) {
           if(Object.size(results) > 0)
             {
@@ -732,6 +750,13 @@ app.post('/login', urlencodedParser, function(req, res) {
 
                     return;
                 }
+            } 
+            else
+            {
+                console.log("This email doesnt exist");
+                    res.send({
+                        status: 'Данной почты нет в базе!'
+                    });
             }
         }
     );
@@ -745,14 +770,14 @@ app.post('/signin', urlencodedParser, function(req, res) {
     var email = req.body.email;
     var password = req.body.password;
 
-    acc_connection.query(
-        'SELECT account_email FROM accounts_data WHERE account_email = ?', [email],
+    connection.query(
+        'SELECT account_email FROM accounts WHERE account_email = ?', [email],
         function(err, results, fields){
 
             if (results <= 0)
             {
                 connection.query(
-                    'INSERT INTO accounts_data(account_nickname, account_email, account_password) VALUES(?, ?, ?)',
+                    'INSERT INTO accounts(account_nickname, account_email, account_password) VALUES(?, ?, ?)',
                     [nickname, email, password], function(err, results, fields) {
                         console.log('account registered');
                         res.send({
